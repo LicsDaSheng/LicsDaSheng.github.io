@@ -1,0 +1,63 @@
+site_name: 文档页面
+site_author: ScottLee - 大圣
+site_url: https://scottlee.github.io/agentic-insight
+
+# Repository
+repo_name: LicsDasheng/agentic-insight
+repo_url: https://github.com/LicsDaSheng/agentic-insight
+
+# Configuration
+theme:
+  name: material
+  language: zh
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: 切换至深色模式
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: 切换至系统偏好
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: 切换至浅色模式
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+# Navigation
+nav:
+  - 首页: index.md
+  - 深度分析:
+    - OpenClaw 飞轮效应: 2026-03-18-openclaw-flywheel.md
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - attr_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+# Plugins
+plugins:
+  - search:
+      lang:
+        - zh
+        - en
