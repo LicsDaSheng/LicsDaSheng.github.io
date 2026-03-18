@@ -1,6 +1,6 @@
 ---
 title: "Claude Code 的 `/loop` 命令：让 AI 编码进入"自动驾驶"时代"
-date: 2026-03-18 10:00:00 +0800
+date: "2026-03-18 10:00:00 +0800"
 categories: [AI, Claude Code]
 tags: [claude-code, loop, automation]
 math: false
