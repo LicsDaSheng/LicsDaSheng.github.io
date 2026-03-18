@@ -1,4 +1,15 @@
-# OpenClaw 生态的「飞轮效应」是如何形成的？
+---
+title: "OpenClaw 生态的「飞轮效应」是如何形成的？"
+date: 2026-03-18 12:00:00 +0800
+categories: [AI, Agent]
+tags: [openclaw, agentic, ecosystem, flywheel]
+math: false
+mermaid: false
+image:
+  src: /assets/images/openclaw-flywheel.jpg
+  width: 1200
+  height: 630
+---
 
 > 当你的工具开始为你的工具建造工具时，你不再是开发者——你是管理者。
 

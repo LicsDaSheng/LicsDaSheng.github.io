@@ -1,0 +1,104 @@
+# Jekyll 配置 - Chirpy 主题
+
+lang: zh-CN
+timezone: Asia/Shanghai
+
+title: Agent Insight
+tagline: AI Agent 深度分析
+description: AI Agent 领域的深度分析与洞察
+
+url: "https://scottlee.github.io"
+baseurl: "/agentic-insight"
+
+# 主题
+remote_theme: cotes2020/jekyll-theme-chirpy
+prefer_color_scheme: auto
+
+# 作者信息
+author:
+  name: ScottLee - 大圣
+  avatar: /assets/images/avatar.png
+  bio: AI Agent 观察者
+  location: China
+  email:
+  links:
+    - label: GitHub
+      icon: fab fa-github
+      url: https://github.com/LicsDaSheng
+
+github:
+  username: LicsDaSheng
+
+social:
+  name: ScottLee - 大圣
+  links:
+    - https://github.com/LicsDaSheng
+
+# 导航
+nav:
+  - name: 首页
+    url: /
+    icon: fas fa-home
+  - name: 关于
+    url: /about/
+    icon: fas fa-info-circle
+  - name: 归档
+    url: /archives/
+    icon: fas fa-archive
+  - name: 分类
+    url: /categories/
+    icon: fas fa-folder
+  - name: 标签
+    url: /tags/
+    icon: fas fa-tags
+
+# 文章设置
+read_time: true
+comments: false
+
+# 分页
+paginate: 10
+
+# 永久链接
+permalink: /:categories/:title/
+
+# 构建设置
+include:
+  - _pages
+exclude:
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - node_modules
+
+# Markdown
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# 插件
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-include-cache
+  - jekyll-remote-theme
+
+# 默认值
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: false
+      toc: true
+
+# 严格front matter
+strict_front_matter: true
