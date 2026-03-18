@@ -1,6 +1,6 @@
 ---
 title: "OpenClaw 生态的「飞轮效应」是如何形成的？"
-date: 2026-03-18 12:00:00 +0800
+date: "2026-03-18 12:00:00 +0800"
 categories: [AI, Agent]
 tags: [openclaw, agentic, ecosystem, flywheel]
 math: false
