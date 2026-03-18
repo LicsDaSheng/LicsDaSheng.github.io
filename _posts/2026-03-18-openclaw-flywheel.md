@@ -6,7 +6,7 @@ tags: [openclaw, agentic, ecosystem, flywheel]
 math: false
 mermaid: false
 image:
-  src: /assets/images/openclaw-flywheel.jpg
+  path: /assets/images/openclaw-flywheel.jpg
   width: 1200
   height: 630
 ---
