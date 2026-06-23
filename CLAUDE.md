@@ -4,77 +4,72 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 项目概述
 
-这是一个 GitHub 个人主页静态站点，基于 **Jekyll + Minimal Mistakes** 主题构建。
+这是一个 GitHub 个人博客站点，基于 **Jekyll + Chirpy** 主题（`jekyll-theme-chirpy`，gem 方式引入）构建。
 
-**优势：**
-- GitHub Pages 原生支持，无需 CI/CD 配置
-- 推送即部署，自动化构建
-- 主题成熟、功能丰富、社区活跃
-- 良好的 SEO 和移动端适配
+- 站点地址：https://licsdasheng.github.io （用户主页仓库，根域名部署）
+- 部署方式：GitHub Actions（`.github/workflows/pages-deploy.yml`），推送到 `main` 自动构建发布
+- 主题特性：深色/浅色切换、全站搜索、分类/标签/归档、目录(TOC)、阅读时长、响应式
 
 ## 常用命令
 
 ```bash
-# 本地预览（需要安装 Jekyll）
-bundle install          # 首次安装依赖
-bundle exec jekyll serve
-
-# 构建静态站点
-bundle exec jekyll build
-
-# 清理构建缓存
-bundle exec jekyll clean
+bundle install              # 首次安装依赖
+bundle exec jekyll serve    # 本地预览 http://127.0.0.1:4000
+bundle exec jekyll build    # 构建静态站点到 _site/
+bundle exec jekyll clean    # 清理构建缓存
 ```
 
 ## 项目结构
 
 ```
-_config.yml         # Jekyll 配置文件（主题、导航、作者信息）
-_posts/             # 博客文章目录（格式: YYYY-MM-DD-title.md）
-_pages/             # 静态页面（关于、项目等）
-_includes/          # 自定义 HTML 组件
-_layouts/           # 自定义页面布局
-assets/             # 静态资源（图片、CSS、JS）
-index.html          # 首页
+_config.yml         # Jekyll + Chirpy 配置（标题、作者、头像、分页、permalink）
+_posts/             # 博客文章（格式: YYYY-MM-DD-title.md）
+_tabs/              # 侧边栏导航页（关于/分类/标签/归档），靠 icon + order 排序
+assets/images/      # 图片资源
+index.html          # 首页（layout: home）
+Gemfile             # Ruby 依赖
+.github/workflows/  # GitHub Pages 部署流程
 ```
+
+> 注意：Chirpy 的导航来自 `_tabs/`，**不是** `_pages/`。新增导航页请放在 `_tabs/`。
 
 ## 添加新内容
 
 ### 博客文章
-在 `_posts/` 目录创建文件，命名格式：`YYYY-MM-DD-title.md`
+
+在 `_posts/` 创建 `YYYY-MM-DD-title.md`，front matter 遵循 Chirpy 规范：
 
 ```yaml
 ---
 title: "文章标题"
-date: 2026-03-18
-categories: [技术]
-tags: [jekyll, github]
+date: 2026-03-18 10:00:00 +0800   # 带时区，避免日期解析错误
+categories: [一级分类, 二级分类]
+tags: [tag1, tag2]                # 小写
+math: false
+mermaid: false
+# 可选封面图：
+# image:
+#   path: /assets/images/cover.jpg
+#   width: 1200
+#   height: 630
 ---
 ```
 
-### 静态页面
-在 `_pages/` 目录创建 `.md` 文件，并在 `_config.yml` 的 `navigation` 中添加链接
+### 导航页
 
-## 主题配置
+在 `_tabs/` 创建 `.md`，用 `icon`（Font Awesome）和 `order` 控制侧边栏顺序，
+并指定对应 `layout`（`page` / `categories` / `tags` / `archives`）。
 
-Minimal Mistakes 主题已启用：
-- 🌓 深色/浅色模式切换
-- 🔍 全站搜索（Lunr）
-- 📱 响应式设计
-- 💬 评论系统集成（可选）
-- 📊 Google Analytics（可选）
+## 配置要点
 
-## 依赖安装
-
-```bash
-# macOS
-gem install bundler jekyll
-bundle install
-```
+- `avatar`: 头像图片路径，需放置真实文件，否则留空 `""` 避免 404
+- `permalink`: 当前为 `/:categories/:title/`
+- `paginate`: 首页分页条数
+- `timezone` / `lang`: `Asia/Shanghai` / `zh-CN`
 
 ## 用户体验原则
 
 1. **首页清晰** - 一眼了解站主是谁、做什么
 2. **导航简洁** - 核心内容触手可及
-3. **加载快速** - 图片优化、减少外部依赖
+3. **加载快速** - 图片需带 width/height，减少外部依赖
 4. **移动优先** - 确保手机端浏览体验流畅

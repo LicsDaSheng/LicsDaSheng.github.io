@@ -1,5 +1,7 @@
 ---
-title: "关于"
+title: 关于
+icon: fas fa-info-circle
+order: 4
 layout: page
 permalink: /about/
 ---
@@ -17,7 +19,3 @@ Agent Insight 是一个专注于 **AI Agent 领域深度分析** 的技术博客
 ### 关于作者
 
 ScottLee（大圣），AI Agent 观察者，关注 AI 原生应用开发与开源生态。
-
-### 联系方式
-
-- GitHub: [LicsDaSheng](https://github.com/LicsDaSheng)

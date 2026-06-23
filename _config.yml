@@ -17,16 +17,23 @@ social:
   links:
     - https://github.com/LicsDaSheng
 
-avatar: /assets/images/avatar.png
+# 头像：放置图片到 assets/images/avatar.png 后取消下一行注释即可
+# avatar: /assets/images/avatar.png
+avatar: ""
 
 paginate: 10
 
 read_time: true
-comments: false
 
 permalink: /:categories/:title/
 
 theme: jekyll-theme-chirpy
+
+# Chirpy 侧边栏导航来自 tabs 集合，gem 模式需显式声明
+collections:
+  tabs:
+    output: true
+    sort_by: order
 
 kramdown:
   syntax_highlighter: rouge
@@ -37,14 +44,12 @@ kramdown:
 exclude:
   - "*.gem"
   - "*.gemspec"
-  - docs
-  - tools
   - README.md
   - LICENSE
-  - rollup.config.js
-  - package*.json
-  - node_modules
   - vendor
+  - .github
+  - CLAUDE.md
+  - .impeccable
 
 defaults:
   - scope:
