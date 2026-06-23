@@ -1,0 +1,53 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Agent Insight avatar">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="36%" r="78%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="60%" stop-color="#F4F2FB"/>
+      <stop offset="100%" stop-color="#E4E0F2"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFDD8E"/>
+      <stop offset="45%" stop-color="#EBB04A"/>
+      <stop offset="100%" stop-color="#C9821F"/>
+    </linearGradient>
+    <linearGradient id="ink" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a49b8"/>
+      <stop offset="100%" stop-color="#202a78"/>
+    </linearGradient>
+    <filter id="goldglow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#B5781A" flood-opacity="0.35"/>
+    </filter>
+    <clipPath id="round"><circle cx="256" cy="256" r="256"/></clipPath>
+  </defs>
+
+  <!-- light background -->
+  <g clip-path="url(#round)">
+    <circle cx="256" cy="256" r="256" fill="url(#bg)"/>
+    <circle cx="256" cy="120" r="210" fill="#C8BEF0" opacity="0.20"/>
+  </g>
+
+  <!-- center 大 mark (heng + pie + na); also reads as a figure with open arms -->
+  <g stroke="url(#ink)" stroke-width="25" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- 横 heng -->
+    <path d="M176 230 H336"/>
+    <!-- 撇 pie: apex pokes above the heng, falls to lower-left -->
+    <path d="M268 192 C238 252 212 304 176 350"/>
+    <!-- 捺 na: branches from center, falls to lower-right -->
+    <path d="M252 236 C286 284 308 316 338 350"/>
+  </g>
+
+  <!-- golden circlet (金箍) -->
+  <g filter="url(#goldglow)">
+    <circle cx="256" cy="262" r="170" fill="none" stroke="#A8690F" stroke-width="30" opacity="0.55"/>
+    <circle cx="256" cy="262" r="170" fill="none" stroke="url(#gold)" stroke-width="26"/>
+    <!-- front ornament (leaf/teardrop) at top center -->
+    <path d="M256 62 C245 100 245 122 256 140 C267 122 267 100 256 62 Z" fill="url(#gold)" stroke="#A8690F" stroke-width="2"/>
+    <circle cx="256" cy="110" r="7" fill="#7C3A0E" opacity="0.6"/>
+    <!-- temple curls -->
+    <path d="M150 150 q-28 4 -26 32 q2 20 22 18 q15 -2 13 -20" fill="none" stroke="url(#gold)" stroke-width="15" stroke-linecap="round"/>
+    <path d="M362 150 q28 4 26 32 q-2 20 -22 18 q-15 -2 -13 -20" fill="none" stroke="url(#gold)" stroke-width="15" stroke-linecap="round"/>
+  </g>
+
+  <!-- subtle rim -->
+  <circle cx="256" cy="256" r="252" fill="none" stroke="#B9AEE6" stroke-width="2" opacity="0.5"/>
+</svg>

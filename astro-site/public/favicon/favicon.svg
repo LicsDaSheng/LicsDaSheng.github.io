@@ -1,0 +1,24 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Agent Insight favicon">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFDD8E"/>
+      <stop offset="50%" stop-color="#EBB04A"/>
+      <stop offset="100%" stop-color="#C9821F"/>
+    </linearGradient>
+    <linearGradient id="i" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a49b8"/>
+      <stop offset="100%" stop-color="#1d2774"/>
+    </linearGradient>
+  </defs>
+  <!-- full-bleed light disc -->
+  <circle cx="256" cy="256" r="256" fill="#F4F2FB"/>
+  <!-- bold golden ring near the edge -->
+  <circle cx="256" cy="256" r="214" fill="none" stroke="#A8690F" stroke-width="56" opacity="0.5"/>
+  <circle cx="256" cy="256" r="214" fill="none" stroke="url(#g)" stroke-width="48"/>
+  <!-- big 大 -->
+  <g stroke="url(#i)" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M132 226 H380"/>
+    <path d="M276 168 C236 250 200 320 140 392"/>
+    <path d="M248 238 C306 318 344 356 384 392"/>
+  </g>
+</svg>
