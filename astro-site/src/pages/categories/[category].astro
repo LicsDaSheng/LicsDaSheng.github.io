@@ -1,0 +1,44 @@
+---
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import PostCard from "@components/PostCard.astro";
+import { getCategoryList, getSortedPosts } from "@utils/content-utils";
+import { getPostUrlBySlug } from "@utils/url-utils";
+
+export async function getStaticPaths() {
+    const categories = await getCategoryList();
+    return categories.map((c) => ({
+        params: { category: c.name },
+        props: { categoryName: c.name },
+    }));
+}
+
+const { categoryName } = Astro.props;
+const allPosts = await getSortedPosts();
+
+const filteredPosts = allPosts.filter((post) => {
+    const postCategory = post.data.category || "";
+    return postCategory.trim() === categoryName;
+});
+---
+<MainGridLayout title={`分类：${categoryName}`} description={`${categoryName} 分类下的所有文章`}>
+    <div class="flex flex-col gap-4 mb-6">
+        <div class="card-base px-6 py-4">
+            <h1 class="text-2xl font-bold mb-1">📂 {categoryName}</h1>
+            <p class="text-black/40 dark:text-white/40 text-sm">{filteredPosts.length} 篇文章</p>
+        </div>
+        {filteredPosts.map((entry) => (
+            <PostCard
+                entry={entry}
+                title={entry.data.title}
+                tags={entry.data.tags}
+                category={entry.data.category}
+                published={entry.data.published}
+                updated={entry.data.updated}
+                url={getPostUrlBySlug(entry.slug)}
+                image={entry.data.image}
+                description={entry.data.description}
+                draft={entry.data.draft}
+            />
+        ))}
+    </div>
+</MainGridLayout>

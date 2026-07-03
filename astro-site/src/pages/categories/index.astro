@@ -1,0 +1,25 @@
+---
+import I18nKey from "@i18n/i18nKey";
+import { i18n } from "@i18n/translation";
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import PostCard from "@components/PostCard.astro";
+import { getCategoryList, getSortedPosts } from "@utils/content-utils";
+import { getPostUrlBySlug } from "@utils/url-utils";
+
+const categories = await getCategoryList();
+---
+<MainGridLayout title={i18n(I18nKey.categories)}>
+    <div class="flex flex-col gap-4">
+        <div class="card-base px-6 py-4">
+            <h1 class="text-2xl font-bold mb-4">{i18n(I18nKey.categories)}</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {categories.map((c) => (
+                    <a href={c.url} class="btn-card rounded-xl px-4 py-3 flex justify-between items-center no-underline hover:scale-[1.02] transition-transform">
+                        <span class="font-medium text-black/80 dark:text-white/80">{c.name}</span>
+                        <span class="text-sm text-black/40 dark:text-white/40 bg-black/5 dark:bg-white/5 px-2 py-0.5 rounded-full">{c.count} 篇</span>
+                    </a>
+                ))}
+            </div>
+        </div>
+    </div>
+</MainGridLayout>

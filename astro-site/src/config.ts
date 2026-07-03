@@ -36,10 +36,22 @@ export const siteConfig: SiteConfig = {
 	],
 };
 
+// Umami Analytics — 注册 https://umami.is 获取 Website ID 后填入
+export const analyticsConfig = {
+	umami: {
+		websiteId: "1e8a4c63-5927-469b-ae3c-ea1d4670d469",
+		src: "https://cloud.umami.is/script.js",
+	},
+};
+
 export const navBarConfig: NavBarConfig = {
 	links: [
 		LinkPreset.Home,
 		LinkPreset.Archive,
+		{
+			name: "分类",
+			url: "/categories/",
+		},
 		LinkPreset.About,
 		{
 			name: "GitHub",
