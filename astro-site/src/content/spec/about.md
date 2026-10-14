@@ -12,4 +12,4 @@
 
 ScottLee（大圣），AI Agent 观察者，关注 AI 原生应用开发与开源生态。
 
-::github{repo="LicsDaSheng/LicsDaSheng.github.io"}
+[访问我的 GitHub →](https://github.com/LicsDaSheng)

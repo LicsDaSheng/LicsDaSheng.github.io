@@ -76,6 +76,15 @@ body {
 }
 #navbar > div:nth-child(2) > a:first-of-type svg { display: none; }
 #navbar .btn-plain { font-weight: 500; color: var(--paper-ink); }
+.float-panel-closed {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-.3rem);
+}
+@media (min-width: 768px) {
+  #nav-menu-panel { display: none; }
+}
 
 #page-shell { max-width: 96rem; margin: 0 auto; padding: 1.75rem 1.5rem 4rem; }
 #main-grid {
@@ -149,12 +158,48 @@ body {
 
 #content-wrapper > .flex.flex-col:first-child { gap: .8rem; background: none; }
 #content-wrapper .card-base:has(> div > a.group) { overflow: hidden; }
-#content-wrapper .card-base > div:first-child { padding: 1.6rem 1.8rem; }
+#content-wrapper .card-base:has(> div > a.group) > div:first-child { padding: 1.6rem 1.8rem; }
 #content-wrapper .card-base > div:first-child > a.group { font-family: Georgia, "Noto Serif SC", "Songti SC", serif; font-size: clamp(1.35rem, 1.6vw, 1.8rem); line-height: 1.4; font-weight: 600; }
 #content-wrapper .card-base > div:first-child > a.group::before { display: none; }
 #content-wrapper .card-base > div:first-child > a.group svg { display: none; }
 #content-wrapper .card-base .text-75 { line-height: 1.75; }
 #content-wrapper .card-base a[href] img { border-radius: 1px; }
+
+.about-page { padding: 2.4rem 2.7rem !important; }
+.about-page .custom-md { color: var(--paper-ink); font-size: 1rem; line-height: 1.9; }
+.about-page .custom-md h1, .about-page .custom-md h2 {
+  font-family: Georgia, "Noto Serif SC", "Songti SC", serif;
+  letter-spacing: -.025em;
+}
+.about-page .custom-md h1 { margin-top: 0; font-size: clamp(2rem, 2.6vw, 2.8rem); }
+.about-page .custom-md h2 { padding-bottom: .5rem; border-bottom: 1px solid var(--paper-line); }
+.about-page .custom-md .anchor { opacity: 0; font-size: .72em; }
+.about-page .custom-md :is(h1, h2, h3):hover .anchor, .about-page .custom-md .anchor:focus-visible { opacity: 1; }
+.about-page .custom-md a[href^="https://github.com/"] {
+  display: inline-flex;
+  align-items: center;
+  margin-top: .5rem;
+  padding: .55rem .85rem;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  text-decoration: none;
+  font-size: .8rem;
+}
+.about-page .custom-md a[href^="https://github.com/"]:hover { background: var(--btn-plain-bg-hover); }
+
+.archive-panel { padding: 2rem 2.4rem !important; }
+.archive-panel > div:first-child { padding: 0 !important; }
+.archive-panel > div > div:first-child { height: auto; min-height: 3.5rem; border-bottom: 1px solid var(--paper-line); margin-bottom: .35rem; }
+.archive-panel > div > div:first-child > div:first-child { width: auto; text-align: left; font: 600 1.7rem Georgia, "Noto Serif SC", "Songti SC", serif; color: var(--paper-ink); }
+.archive-panel > div > div:first-child > div:nth-child(2) { display: none; }
+.archive-panel > div > div:first-child > div:last-child { width: auto; margin-left: .75rem; color: var(--paper-muted); font-size: .75rem; }
+.archive-panel a.group { display: block; height: auto; min-height: 3.1rem; border-radius: 0; padding: .7rem .2rem; border-bottom: 1px solid var(--paper-line); }
+.archive-panel a.group > div { height: auto; display: flex; align-items: baseline; gap: 1.1rem; }
+.archive-panel a.group > div > div:first-child { flex: 0 0 3.1rem; width: auto; text-align: left; color: var(--paper-muted); font: .73rem ui-monospace, SFMono-Regular, Menlo, monospace; }
+.archive-panel a.group > div > div:nth-child(2), .archive-panel a.group > div > div:last-child { display: none; }
+.archive-panel a.group > div > div:nth-child(3) { flex: 1; width: auto; max-width: none; padding: 0; overflow: visible; white-space: normal; color: var(--paper-ink); font: 500 1rem/1.6 Georgia, "Noto Serif SC", "Songti SC", serif; }
+.archive-panel a.group:hover { background: var(--btn-plain-bg-hover); }
+.archive-panel a.group:hover > div > div:nth-child(3) { color: var(--primary); }
 
 #post-container { padding: 2.4rem 2.7rem 3rem !important; }
 #post-container > .relative.onload-animation > div { font-family: Georgia, "Noto Serif SC", "Songti SC", serif; font-size: clamp(2.2rem, 3vw, 3.4rem); line-height: 1.32; letter-spacing: -.045em; font-weight: 600; }
@@ -194,5 +239,7 @@ body {
   .identity-name { display: inline; margin-left: .6rem; font-size: 1.1rem; }
   .home-intro { padding: 1.7rem 1.4rem; }
   #post-container { padding: 1.6rem 1.3rem 2rem !important; }
-  #content-wrapper .card-base > div:first-child { padding: 1.35rem; }
+  #content-wrapper .card-base:has(> div > a.group) > div:first-child { padding: 1.35rem; }
+  .about-page { padding: 1.5rem 1.2rem !important; }
+  .archive-panel { padding: 1.3rem 1.1rem !important; }
 }
