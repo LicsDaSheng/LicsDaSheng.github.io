@@ -18,6 +18,13 @@ const len = page.data.length;
 ---
 
 <MainGridLayout>
+    {page.currentPage === 1 && <header class="home-intro paper-panel">
+        <div class="eyebrow">AGENT INSIGHT · 独立技术博客</div>
+        <h1>记录 AI Agent 的<br /><em>技术与思考</em></h1>
+        <p>我是 ScottLee · 大圣，关注 AI 原生应用开发、智能体系统与开源生态。这里是持续更新的实践笔记与深度分析。</p>
+        <div class="intro-links"><a href="/about/">认识作者 <span>↗</span></a><a href="/archive/">浏览全部文章 <span>→</span></a></div>
+    </header>}
+    <div class="section-heading"><span>最新文章</span><span>RECENT WRITING</span></div>
     <PostPage page={page}></PostPage>
     <Pagination class="mx-auto onload-animation" page={page} style={`animation-delay: calc(var(--content-delay) + ${(len)*50}ms)`}></Pagination>
 </MainGridLayout>

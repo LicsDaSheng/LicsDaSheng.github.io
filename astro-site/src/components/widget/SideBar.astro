@@ -1,22 +1,35 @@
 ---
+import { getSortedPosts } from "@utils/content-utils";
+import { getPostUrlBySlug } from "@utils/url-utils";
 import type { MarkdownHeading } from "astro";
-import Categories from "./Categories.astro";
-import Profile from "./Profile.astro";
-import Tag from "./Tags.astro";
+import { profileConfig } from "../../config";
 
 interface Props {
-	class?: string;
-	headings?: MarkdownHeading[];
+  class?: string;
+  headings?: MarkdownHeading[];
 }
 
 const className = Astro.props.class;
+const recentPosts = (await getSortedPosts()).slice(0, 6);
 ---
-<div id="sidebar" class:list={[className, "w-full"]}>
-    <div class="flex flex-col w-full gap-4 mb-4">
-        <Profile></Profile>
+
+<aside id="sidebar" class:list={[className, "paper-panel"]} aria-label="阅读目录">
+  <div class="panel-heading">阅读目录</div>
+  <div class="sidebar-body">
+    <div class="sidebar-identity">
+      <span class="identity-eyebrow">AI AGENT · 技术笔记</span>
+      <a href="/about/" class="identity-name">{profileConfig.name}</a>
+      <p>{profileConfig.bio}</p>
     </div>
-    <div id="sidebar-sticky" class="transition-all duration-700 flex flex-col w-full gap-4 top-4 sticky top-4">
-        <Categories class="onload-animation" style="animation-delay: 150ms"></Categories>
-        <Tag class="onload-animation" style="animation-delay: 200ms"></Tag>
-    </div>
-</div>
+
+    <nav class="sidebar-nav" aria-label="站点目录">
+      <a href="/" class="sidebar-section-link">最新文章 <span>↗</span></a>
+      {recentPosts.map((post) => (
+        <a href={getPostUrlBySlug(post.slug)} class="sidebar-post-link" title={post.data.title}>{post.data.title}</a>
+      ))}
+      <a href="/archive/" class="sidebar-section-link">全部归档 <span>›</span></a>
+      <a href="/categories/" class="sidebar-section-link">主题分类 <span>›</span></a>
+      <a href="/about/" class="sidebar-section-link">关于作者 <span>›</span></a>
+    </nav>
+  </div>
+</aside>
