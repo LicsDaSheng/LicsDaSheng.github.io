@@ -20,7 +20,7 @@ interface Props {
 	image: string;
 	description: string;
 	draft: boolean;
-	style: string;
+	style?: string;
 }
 const {
 	entry,
@@ -42,10 +42,10 @@ const coverWidth = "28%";
 
 const { remarkPluginFrontmatter } = await entry.render();
 ---
-<div class:list={["card-base flex flex-col-reverse md:flex-col w-full rounded-[var(--radius-large)] overflow-hidden relative", className]} style={style}>
-    <div class:list={["pl-6 md:pl-9 pr-6 md:pr-2 pt-6 md:pt-7 pb-6 relative", {"w-full md:w-[calc(100%_-_52px_-_12px)]": !hasCover, "w-full md:w-[calc(100%_-_var(--coverWidth)_-_12px)]": hasCover}]}>
+<div class:list={["post-card card-base flex flex-col-reverse md:flex-col w-full rounded-[var(--radius-large)] overflow-hidden relative", className]} style={style}>
+    <div class:list={["pl-6 md:pl-9 pr-6 md:pr-2 pt-6 md:pt-7 pb-6", {"w-full": !hasCover, "w-full md:w-[calc(100%_-_var(--coverWidth)_-_12px)]": hasCover}]}>
         <a href={url}
-           class="transition group w-full block font-bold mb-3 text-3xl text-90
+           class="post-card-title transition group w-full block font-bold mb-3 text-3xl text-90
         hover:text-[var(--primary)] dark:hover:text-[var(--primary)]
         active:text-[var(--title-active)] dark:active:text-[var(--title-active)]
         before:w-1 before:h-5 before:rounded-md before:bg-[var(--primary)]
@@ -93,18 +93,29 @@ const { remarkPluginFrontmatter } = await entry.render();
         </ImageWrapper>
     </a>}
 
-    {!hasCover &&
-        <a href={url} aria-label={title} class="!hidden md:!flex btn-regular w-[3.25rem]
-         absolute right-3 top-3 bottom-3 rounded-xl bg-[var(--enter-btn-bg)]
-         hover:bg-[var(--enter-btn-bg-hover)] active:bg-[var(--enter-btn-bg-active)] active:scale-95
-        ">
-            <Icon name="material-symbols:chevron-right-rounded"
-                  class="transition text-[var(--primary)] text-4xl mx-auto">
-            </Icon>
-        </a>
-    }
+
 </div>
 <div class="transition border-t-[1px] border-dashed mx-6 border-black/10 dark:border-white/[0.15] last:border-t-0 md:hidden"></div>
 
 <style define:vars={{coverWidth}}>
+/* Stretch the native title link over the card without nesting metadata links. */
+.post-card { isolation: isolate; }
+.post-card-title::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: inherit;
+}
+.post-card :global(.with-divider a),
+.post-card :global(a[href*="/categories/"]),
+.post-card :global(a[href*="/archive/"]) {
+    position: relative;
+    z-index: 2;
+}
+.post-card-title:focus-visible { outline: none; }
+.post-card-title:focus-visible::after {
+    outline: 2px solid var(--primary);
+    outline-offset: -4px;
+}
 </style>
