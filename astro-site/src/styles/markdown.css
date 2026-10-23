@@ -1,4 +1,48 @@
 .custom-md {
+    .pi-diagram {
+        margin: 2rem 0 0.75rem;
+    }
+
+    .pi-diagram-scroll {
+        overflow-x: auto;
+        border-radius: 16px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .pi-diagram-scroll:focus-visible {
+        outline: 2px solid var(--primary);
+        outline-offset: 4px;
+    }
+
+    .pi-diagram svg {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .pi-diagram figcaption {
+        margin-top: 0.6rem;
+        text-align: center;
+        font-size: 0.9rem;
+        color: var(--paper-muted);
+    }
+
+    .pi-diagram-source {
+        margin-bottom: 2rem;
+        font-size: 0.9rem;
+    }
+
+    .pi-diagram-source summary {
+        cursor: pointer;
+        color: var(--primary);
+    }
+
+    @media (max-width: 640px) {
+        .pi-diagram svg {
+            min-width: 580px;
+        }
+    }
+
     h1 {
         @apply text-3xl;
     }

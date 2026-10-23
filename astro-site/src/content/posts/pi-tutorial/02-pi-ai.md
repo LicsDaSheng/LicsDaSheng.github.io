@@ -72,6 +72,22 @@ show(data.answer);
 
 考虑这样一次交互：
 
+<!-- pi-diagram:pi-read:start -->
+<figure class="pi-diagram">
+<div class="pi-diagram-scroll" tabindex="0" role="region" aria-label="06 · 读取资料：两次模型请求的协作，窄屏可横向滚动">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 625" width="720" height="625" role="img" aria-labelledby="pi-read-title pi-read-desc">
+<title id="pi-read-title">06 · 读取资料：两次模型请求的协作</title><desc id="pi-read-desc">流程的完整文字版本位于图后的可展开说明。</desc>
+<defs><pattern id="pi-read-hatch" width="9" height="9" patternUnits="userSpaceOnUse"><path d="M-2 9 9-2M5 12 12 5" stroke="#80775f" stroke-width=".65" opacity=".13"/></pattern><marker id="pi-read-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 8 5 1 9" fill="none" stroke="#4a4a42" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect x="3" y="3" width="714" height="619" rx="17" fill="#fffaf0" stroke="#8da4ad" stroke-width="1.8"/><rect x="6" y="5" width="708" height="614" rx="15" fill="none" stroke="#8da4ad" stroke-opacity=".3"/>
+<g fill="#302d28" font-family="LXGW WenKai, Kaiti SC, KaiTi, serif"><text x="35" y="40" text-anchor="start" font-size="23">06 · 读取资料：两次模型请求的协作</text><path d="M107 66 Q360.0 63 613 65 Q626 65 625 78 L624 129 Q625 142 612 141 Q360.0 143 107 140 Q94 141 95 128 L96 77 Q95 65 107 66Z" fill="#dcebf0" stroke="#494940" stroke-width="1.8"/><path d="M107 66 Q360.0 63 613 65 Q626 65 625 78 L624 129 Q625 142 612 141 Q360.0 143 107 140 Q94 141 95 128 L96 77 Q95 65 107 66Z" fill="url(#pi-read-hatch)" stroke="#77735f" stroke-opacity=".25" transform="translate(1.8,1.4)"/><text x="360.0" y="95.5" text-anchor="middle" font-size="19">用户输入</text><text x="360.0" y="122.5" text-anchor="middle" font-size="19">读取已授权资料，提取三个要点</text><path d="M360 144 Q358 157 360 169" fill="none" stroke="#4a4a42" stroke-width="2" stroke-linecap="round" marker-end="url(#pi-read-arrow)"/><path d="M107 176 Q360.0 173 613 175 Q626 175 625 188 L624 239 Q625 252 612 251 Q360.0 253 107 250 Q94 251 95 238 L96 187 Q95 175 107 176Z" fill="#e9e0f0" stroke="#494940" stroke-width="1.8"/><path d="M107 176 Q360.0 173 613 175 Q626 175 625 188 L624 239 Q625 252 612 251 Q360.0 253 107 250 Q94 251 95 238 L96 187 Q95 175 107 176Z" fill="url(#pi-read-hatch)" stroke="#77735f" stroke-opacity=".25" transform="translate(1.8,1.4)"/><text x="360.0" y="205.5" text-anchor="middle" font-size="19">第一次模型响应</text><text x="360.0" y="232.5" text-anchor="middle" font-size="19">请求调用 read_material</text><path d="M360 254 Q358 267 360 279" fill="none" stroke="#4a4a42" stroke-width="2" stroke-linecap="round" marker-end="url(#pi-read-arrow)"/><path d="M107 286 Q360.0 283 613 285 Q626 285 625 298 L624 349 Q625 362 612 361 Q360.0 363 107 360 Q94 361 95 348 L96 297 Q95 285 107 286Z" fill="#edf0d2" stroke="#494940" stroke-width="1.8"/><path d="M107 286 Q360.0 283 613 285 Q626 285 625 298 L624 349 Q625 362 612 361 Q360.0 363 107 360 Q94 361 95 348 L96 297 Q95 285 107 286Z" fill="url(#pi-read-hatch)" stroke="#77735f" stroke-opacity=".25" transform="translate(1.8,1.4)"/><text x="360.0" y="315.5" text-anchor="middle" font-size="19">程序检查参数与授权</text><text x="360.0" y="342.5" text-anchor="middle" font-size="19">执行读取</text><path d="M360 364 Q358 377 360 389" fill="none" stroke="#4a4a42" stroke-width="2" stroke-linecap="round" marker-end="url(#pi-read-arrow)"/><path d="M107 396 Q360.0 393 613 395 Q626 395 625 408 L624 459 Q625 472 612 471 Q360.0 473 107 470 Q94 471 95 458 L96 407 Q95 395 107 396Z" fill="#f3dedb" stroke="#494940" stroke-width="1.8"/><path d="M107 396 Q360.0 393 613 395 Q626 395 625 408 L624 459 Q625 472 612 471 Q360.0 473 107 470 Q94 471 95 458 L96 407 Q95 395 107 396Z" fill="url(#pi-read-hatch)" stroke="#77735f" stroke-opacity=".25" transform="translate(1.8,1.4)"/><text x="360.0" y="439.0" text-anchor="middle" font-size="19">工具结果进入消息历史</text><path d="M360 474 Q358 487 360 499" fill="none" stroke="#4a4a42" stroke-width="2" stroke-linecap="round" marker-end="url(#pi-read-arrow)"/><path d="M107 506 Q360.0 503 613 505 Q626 505 625 518 L624 569 Q625 582 612 581 Q360.0 583 107 580 Q94 581 95 568 L96 517 Q95 505 107 506Z" fill="#faedb9" stroke="#494940" stroke-width="1.8"/><path d="M107 506 Q360.0 503 613 505 Q626 505 625 518 L624 569 Q625 582 612 581 Q360.0 583 107 580 Q94 581 95 568 L96 517 Q95 505 107 506Z" fill="url(#pi-read-hatch)" stroke="#77735f" stroke-opacity=".25" transform="translate(1.8,1.4)"/><text x="360.0" y="535.5" text-anchor="middle" font-size="19">第二次模型响应</text><text x="360.0" y="562.5" text-anchor="middle" font-size="19">根据资料生成要点</text></g>
+</svg>
+</div>
+<figcaption>06 · 读取资料：两次模型请求的协作</figcaption>
+</figure>
+
+<details class="pi-diagram-source">
+<summary>展开文字链路（可复制）</summary>
+
 ```text
 用户：读取已授权资料，提取三个要点
   ↓
@@ -83,6 +99,9 @@ show(data.answer);
   ↓
 第二次模型响应：根据资料生成要点
 ```
+
+</details>
+<!-- pi-diagram:pi-read:end -->
 
 对于只显示聊天内容的程序，一段不完整的文本可能只是显示问题；对于 Agent，一段不完整的工具参数可能改变程序接下来访问的文件。
 
@@ -183,9 +202,28 @@ export function normalizeContext(context: Context): TranscriptContext {
 
 所以这里存在两个不同步骤：
 
+<!-- pi-diagram:pi-boundary:start -->
+<figure class="pi-diagram">
+<div class="pi-diagram-scroll" tabindex="0" role="region" aria-label="07 · 消息转换的三层边界，窄屏可横向滚动">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 405" width="720" height="405" role="img" aria-labelledby="pi-boundary-title pi-boundary-desc">
+<title id="pi-boundary-title">07 · 消息转换的三层边界</title><desc id="pi-boundary-desc">流程的完整文字版本位于图后的可展开说明。</desc>
+<defs><pattern id="pi-boundary-hatch" width="9" height="9" patternUnits="userSpaceOnUse"><path d="M-2 9 9-2M5 12 12 5" stroke="#80775f" stroke-width=".65" opacity=".13"/></pattern><marker id="pi-boundary-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 8 5 1 9" fill="none" stroke="#4a4a42" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect x="3" y="3" width="714" height="399" rx="17" fill="#fffaf0" stroke="#8da4ad" stroke-width="1.8"/><rect x="6" y="5" width="708" height="394" rx="15" fill="none" stroke="#8da4ad" stroke-opacity=".3"/>
+<g fill="#302d28" font-family="LXGW WenKai, Kaiti SC, KaiTi, serif"><text x="35" y="40" text-anchor="start" font-size="23">07 · 消息转换的三层边界</text><path d="M107 66 Q360.0 63 613 65 Q626 65 625 78 L624 129 Q625 142 612 141 Q360.0 143 107 140 Q94 141 95 128 L96 77 Q95 65 107 66Z" fill="#dcebf0" stroke="#494940" stroke-width="1.8"/><path d="M107 66 Q360.0 63 613 65 Q626 65 625 78 L624 129 Q625 142 612 141 Q360.0 143 107 140 Q94 141 95 128 L96 77 Q95 65 107 66Z" fill="url(#pi-boundary-hatch)" stroke="#77735f" stroke-opacity=".25" transform="translate(1.8,1.4)"/><text x="360.0" y="109.0" text-anchor="middle" font-size="19">应用数据</text><path d="M360 144 Q358 157 360 169" fill="none" stroke="#4a4a42" stroke-width="2" stroke-linecap="round" marker-end="url(#pi-boundary-arrow)"/><path d="M107 176 Q360.0 173 613 175 Q626 175 625 188 L624 239 Q625 252 612 251 Q360.0 253 107 250 Q94 251 95 238 L96 187 Q95 175 107 176Z" fill="#e9e0f0" stroke="#494940" stroke-width="1.8"/><path d="M107 176 Q360.0 173 613 175 Q626 175 625 188 L624 239 Q625 252 612 251 Q360.0 253 107 250 Q94 251 95 238 L96 187 Q95 175 107 176Z" fill="url(#pi-boundary-hatch)" stroke="#77735f" stroke-opacity=".25" transform="translate(1.8,1.4)"/><text x="360.0" y="219.0" text-anchor="middle" font-size="19">Pi 规范化消息</text><path d="M360 254 Q358 267 360 279" fill="none" stroke="#4a4a42" stroke-width="2" stroke-linecap="round" marker-end="url(#pi-boundary-arrow)"/><path d="M107 286 Q360.0 283 613 285 Q626 285 625 298 L624 349 Q625 362 612 361 Q360.0 363 107 360 Q94 361 95 348 L96 297 Q95 285 107 286Z" fill="#edf0d2" stroke="#494940" stroke-width="1.8"/><path d="M107 286 Q360.0 283 613 285 Q626 285 625 298 L624 349 Q625 362 612 361 Q360.0 363 107 360 Q94 361 95 348 L96 297 Q95 285 107 286Z" fill="url(#pi-boundary-hatch)" stroke="#77735f" stroke-opacity=".25" transform="translate(1.8,1.4)"/><text x="360.0" y="329.0" text-anchor="middle" font-size="19">提供商请求数据</text></g>
+</svg>
+</div>
+<figcaption>07 · 消息转换的三层边界</figcaption>
+</figure>
+
+<details class="pi-diagram-source">
+<summary>展开文字链路（可复制）</summary>
+
 ```text
 应用数据 → Pi 规范化消息 → 提供商请求数据
 ```
+
+</details>
+<!-- pi-diagram:pi-boundary:end -->
 
 前一步建立内部约定，后一步适配外部协议，不能混为一谈。
 
@@ -207,6 +245,22 @@ const response = await streamFunction(config.model, llmContext, {
 
 在 coding agent 的 SDK 接线中，`sdk.ts:420–430` 注入的 `streamFn` 最终调用 `modelRuntime.streamSimple(...)`。对普通、非虚拟聊天模型，本版本的实际主链是：
 
+<!-- pi-diagram:pi-provider:start -->
+<figure class="pi-diagram">
+<div class="pi-diagram-scroll" tabindex="0" role="region" aria-label="08 · 从 Agent 到模型服务，窄屏可横向滚动">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1065" width="720" height="1065" role="img" aria-labelledby="pi-provider-title pi-provider-desc">
+<title id="pi-provider-title">08 · 从 Agent 到模型服务</title><desc id="pi-provider-desc">流程的完整文字版本位于图后的可展开说明。</desc>
+<defs><pattern id="pi-provider-hatch" width="9" height="9" patternUnits="userSpaceOnUse"><path d="M-2 9 9-2M5 12 12 5" stroke="#80775f" stroke-width=".65" opacity=".13"/></pattern><marker id="pi-provider-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 8 5 1 9" fill="none" stroke="#4a4a42" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect x="3" y="3" width="714" height="1059" rx="17" fill="#fffaf0" stroke="#8da4ad" stroke-width="1.8"/><rect x="6" y="5" width="708" height="1054" rx="15" fill="none" stroke="#8da4ad" stroke-opacity=".3"/>
+<g fill="#302d28" font-family="LXGW WenKai, Kaiti SC, KaiTi, serif"><text x="35" y="40" text-anchor="start" font-size="23">08 · 从 Agent 到模型服务</text><path d="M107 66 Q360.0 63 613 65 Q626 65 625 78 L624 129 Q625 142 612 141 Q360.0 143 107 140 Q94 141 95 128 L96 77 Q95 65 107 66Z" fill="#dcebf0" stroke="#494940" stroke-width="1.8"/><path d="M107 66 Q360.0 63 613 65 Q626 65 625 78 L624 129 Q625 142 612 141 Q360.0 143 107 140 Q94 141 95 128 L96 77 Q95 65 107 66Z" fill="url(#pi-provider-hatch)" stroke="#77735f" stroke-opacity=".25" transform="translate(1.8,1.4)"/><text x="360.0" y="109.0" text-anchor="middle" font-size="19">Agent 的 streamAssistantResponse</text><path d="M360 144 Q358 157 360 169" fill="none" stroke="#4a4a42" stroke-width="2" stroke-linecap="round" marker-end="url(#pi-provider-arrow)"/><path d="M107 176 Q360.0 173 613 175 Q626 175 625 188 L624 239 Q625 252 612 251 Q360.0 253 107 250 Q94 251 95 238 L96 187 Q95 175 107 176Z" fill="#e9e0f0" stroke="#494940" stroke-width="1.8"/><path d="M107 176 Q360.0 173 613 175 Q626 175 625 188 L624 239 Q625 252 612 251 Q360.0 253 107 250 Q94 251 95 238 L96 187 Q95 175 107 176Z" fill="url(#pi-provider-hatch)" stroke="#77735f" stroke-opacity=".25" transform="translate(1.8,1.4)"/><text x="360.0" y="219.0" text-anchor="middle" font-size="19">注入的 streamFn</text><path d="M360 254 Q358 267 360 279" fill="none" stroke="#4a4a42" stroke-width="2" stroke-linecap="round" marker-end="url(#pi-provider-arrow)"/><path d="M107 286 Q360.0 283 613 285 Q626 285 625 298 L624 349 Q625 362 612 361 Q360.0 363 107 360 Q94 361 95 348 L96 297 Q95 285 107 286Z" fill="#edf0d2" stroke="#494940" stroke-width="1.8"/><path d="M107 286 Q360.0 283 613 285 Q626 285 625 298 L624 349 Q625 362 612 361 Q360.0 363 107 360 Q94 361 95 348 L96 297 Q95 285 107 286Z" fill="url(#pi-provider-hatch)" stroke="#77735f" stroke-opacity=".25" transform="translate(1.8,1.4)"/><text x="360.0" y="329.0" text-anchor="middle" font-size="19">ModelRuntime.streamSimple</text><path d="M360 364 Q358 377 360 389" fill="none" stroke="#4a4a42" stroke-width="2" stroke-linecap="round" marker-end="url(#pi-provider-arrow)"/><path d="M107 396 Q360.0 393 613 395 Q626 395 625 408 L624 459 Q625 472 612 471 Q360.0 473 107 470 Q94 471 95 458 L96 407 Q95 395 107 396Z" fill="#f3dedb" stroke="#494940" stroke-width="1.8"/><path d="M107 396 Q360.0 393 613 395 Q626 395 625 408 L624 459 Q625 472 612 471 Q360.0 473 107 470 Q94 471 95 458 L96 407 Q95 395 107 396Z" fill="url(#pi-provider-hatch)" stroke="#77735f" stroke-opacity=".25" transform="translate(1.8,1.4)"/><text x="360.0" y="425.5" text-anchor="middle" font-size="19">prepareRequest</text><text x="360.0" y="452.5" text-anchor="middle" font-size="19">准备提供商、模型和请求选项</text><path d="M360 474 Q358 487 360 499" fill="none" stroke="#4a4a42" stroke-width="2" stroke-linecap="round" marker-end="url(#pi-provider-arrow)"/><path d="M107 506 Q360.0 503 613 505 Q626 505 625 518 L624 569 Q625 582 612 581 Q360.0 583 107 580 Q94 581 95 568 L96 517 Q95 505 107 506Z" fill="#faedb9" stroke="#494940" stroke-width="1.8"/><path d="M107 506 Q360.0 503 613 505 Q626 505 625 518 L624 569 Q625 582 612 581 Q360.0 583 107 580 Q94 581 95 568 L96 517 Q95 505 107 506Z" fill="url(#pi-provider-hatch)" stroke="#77735f" stroke-opacity=".25" transform="translate(1.8,1.4)"/><text x="360.0" y="549.0" text-anchor="middle" font-size="19">prepared.provider.streamSimple</text><path d="M360 584 Q358 597 360 609" fill="none" stroke="#4a4a42" stroke-width="2" stroke-linecap="round" marker-end="url(#pi-provider-arrow)"/><path d="M107 616 Q360.0 613 613 615 Q626 615 625 628 L624 679 Q625 692 612 691 Q360.0 693 107 690 Q94 691 95 678 L96 627 Q95 615 107 616Z" fill="#dcebf0" stroke="#494940" stroke-width="1.8"/><path d="M107 616 Q360.0 613 613 615 Q626 615 625 628 L624 679 Q625 692 612 691 Q360.0 693 107 690 Q94 691 95 678 L96 627 Q95 615 107 616Z" fill="url(#pi-provider-hatch)" stroke="#77735f" stroke-opacity=".25" transform="translate(1.8,1.4)"/><text x="360.0" y="659.0" text-anchor="middle" font-size="19">createProvider 中的 dispatch</text><path d="M360 694 Q358 707 360 719" fill="none" stroke="#4a4a42" stroke-width="2" stroke-linecap="round" marker-end="url(#pi-provider-arrow)"/><path d="M107 726 Q360.0 723 613 725 Q626 725 625 738 L624 789 Q625 802 612 801 Q360.0 803 107 800 Q94 801 95 788 L96 737 Q95 725 107 726Z" fill="#e9e0f0" stroke="#494940" stroke-width="1.8"/><path d="M107 726 Q360.0 723 613 725 Q626 725 625 738 L624 789 Q625 802 612 801 Q360.0 803 107 800 Q94 801 95 788 L96 737 Q95 725 107 726Z" fill="url(#pi-provider-hatch)" stroke="#77735f" stroke-opacity=".25" transform="translate(1.8,1.4)"/><text x="360.0" y="769.0" text-anchor="middle" font-size="19">对应 API 的 streamSimple</text><path d="M360 804 Q358 817 360 829" fill="none" stroke="#4a4a42" stroke-width="2" stroke-linecap="round" marker-end="url(#pi-provider-arrow)"/><path d="M107 836 Q360.0 833 613 835 Q626 835 625 848 L624 899 Q625 912 612 911 Q360.0 913 107 910 Q94 911 95 898 L96 847 Q95 835 107 836Z" fill="#edf0d2" stroke="#494940" stroke-width="1.8"/><path d="M107 836 Q360.0 833 613 835 Q626 835 625 848 L624 899 Q625 912 612 911 Q360.0 913 107 910 Q94 911 95 898 L96 847 Q95 835 107 836Z" fill="url(#pi-provider-hatch)" stroke="#77735f" stroke-opacity=".25" transform="translate(1.8,1.4)"/><text x="360.0" y="879.0" text-anchor="middle" font-size="19">对应 API 的 stream</text><path d="M360 914 Q358 927 360 939" fill="none" stroke="#4a4a42" stroke-width="2" stroke-linecap="round" marker-end="url(#pi-provider-arrow)"/><path d="M107 946 Q360.0 943 613 945 Q626 945 625 958 L624 1009 Q625 1022 612 1021 Q360.0 1023 107 1020 Q94 1021 95 1008 L96 957 Q95 945 107 946Z" fill="#f3dedb" stroke="#494940" stroke-width="1.8"/><path d="M107 946 Q360.0 943 613 945 Q626 945 625 958 L624 1009 Q625 1022 612 1021 Q360.0 1023 107 1020 Q94 1021 95 1008 L96 957 Q95 945 107 946Z" fill="url(#pi-provider-hatch)" stroke="#77735f" stroke-opacity=".25" transform="translate(1.8,1.4)"/><text x="360.0" y="975.5" text-anchor="middle" font-size="19">提供商 SDK</text><text x="360.0" y="1002.5" text-anchor="middle" font-size="19">请求与响应转换</text></g>
+</svg>
+</div>
+<figcaption>08 · 从 Agent 到模型服务</figcaption>
+</figure>
+
+<details class="pi-diagram-source">
+<summary>展开文字链路（可复制）</summary>
+
 ```text
 Agent 的 streamAssistantResponse
   → 注入的 streamFn
@@ -218,6 +272,9 @@ Agent 的 streamAssistantResponse
   → 对应 API 的 stream
   → 提供商 SDK 请求与响应转换
 ```
+
+</details>
+<!-- pi-diagram:pi-provider:end -->
 
 `ModelRuntime` 属于 coding agent 应用层，不能误画成 Pi AI 内的类。其 `streamSimple` 对虚拟模型还有额外路由分支，本章不展开。
 

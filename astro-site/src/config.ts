@@ -47,7 +47,6 @@ export const analyticsConfig = {
 export const navBarConfig: NavBarConfig = {
 	links: [
 		LinkPreset.Home,
-		LinkPreset.Archive,
 		{
 			name: "专栏",
 			url: "/series/",
@@ -56,6 +55,7 @@ export const navBarConfig: NavBarConfig = {
 			name: "分类",
 			url: "/categories/",
 		},
+		LinkPreset.Archive,
 		LinkPreset.About,
 		{
 			name: "GitHub",

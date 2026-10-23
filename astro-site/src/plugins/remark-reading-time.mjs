@@ -4,7 +4,9 @@ import getReadingTime from "reading-time";
 
 export function remarkReadingTime() {
 	return (tree, { data }) => {
-		const textOnPage = toString(tree);
+		// Inline SVG markup is presentation, not reading material. The tutorial
+		// keeps its readable text equivalent in a regular Markdown code block.
+		const textOnPage = toString(tree, { includeHtml: false });
 		const readingTime = getReadingTime(textOnPage);
 		data.astro.frontmatter.minutes = Math.max(
 			1,
