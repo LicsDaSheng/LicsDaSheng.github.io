@@ -1,0 +1,44 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getSeriesConfig } from "../../series";
+import { getSeriesPosts } from "../../utils/content-utils";
+import { getPostUrlBySlug, url } from "../../utils/url-utils";
+
+interface Props {
+	entry: CollectionEntry<"posts">;
+	position: "top" | "bottom";
+}
+const { entry, position } = Astro.props;
+const series = getSeriesConfig(entry.data.series);
+const posts = series ? await getSeriesPosts(series.id) : [];
+const index = posts.findIndex((p) => p.slug === entry.slug);
+const prev = index > 0 ? posts[index - 1] : undefined;
+const next = index >= 0 && index < posts.length - 1 ? posts[index + 1] : undefined;
+---
+{series && position === "top" && (
+    <nav class="series-nav" aria-label={`专栏：${series.title}`}>
+        <div class="series-nav-head">
+            <a href={url(`/series/${series.id}/`)}>📚 专栏 · {series.title}</a>
+            <span>{index + 1} / {posts.length}</span>
+        </div>
+        <ol>
+            {posts.map((p) => (
+                <li>
+                    {p.slug === entry.slug
+                        ? <span class="current" aria-current="page">{p.data.title}</span>
+                        : <a href={getPostUrlBySlug(p.slug)}>{p.data.title}</a>}
+                </li>
+            ))}
+        </ol>
+    </nav>
+)}
+{series && position === "bottom" && (
+    <nav class="series-pager" aria-label="专栏章节导航">
+        {prev
+            ? <a href={getPostUrlBySlug(prev.slug)} class="prev"><span>← 上一章</span><strong>{prev.data.title}</strong></a>
+            : <a href={url(`/series/${series.id}/`)} class="prev"><span>← 返回专栏</span><strong>{series.title}</strong></a>}
+        {next
+            ? <a href={getPostUrlBySlug(next.slug)} class="next"><span>下一章 →</span><strong>{next.data.title}</strong></a>
+            : <a href={url(`/series/${series.id}/`)} class="next"><span>专栏目录 →</span><strong>后续章节持续更新中</strong></a>}
+    </nav>
+)}

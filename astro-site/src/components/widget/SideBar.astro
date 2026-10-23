@@ -1,5 +1,6 @@
 ---
-import { getSortedPosts } from "@utils/content-utils";
+import { getFeedPosts } from "@utils/content-utils";
+import { seriesList } from "../../series";
 import { getPostUrlBySlug } from "@utils/url-utils";
 import type { MarkdownHeading } from "astro";
 import { profileConfig } from "../../config";
@@ -10,7 +11,7 @@ interface Props {
 }
 
 const className = Astro.props.class;
-const recentPosts = (await getSortedPosts()).slice(0, 6);
+const recentPosts = (await getFeedPosts()).slice(0, 6);
 ---
 
 <aside id="sidebar" class:list={[className, "paper-panel"]} aria-label="阅读目录">
@@ -26,6 +27,10 @@ const recentPosts = (await getSortedPosts()).slice(0, 6);
       <a href="/" class="sidebar-section-link">最新文章 <span>↗</span></a>
       {recentPosts.map((post) => (
         <a href={getPostUrlBySlug(post.slug)} class="sidebar-post-link" title={post.data.title}>{post.data.title}</a>
+      ))}
+      <a href="/series/" class="sidebar-section-link">专栏 <span>›</span></a>
+      {seriesList.map((s) => (
+        <a href={`/series/${s.id}/`} class="sidebar-post-link" title={s.title}>📚 {s.title}</a>
       ))}
       <a href="/archive/" class="sidebar-section-link">全部归档 <span>›</span></a>
       <a href="/categories/" class="sidebar-section-link">主题分类 <span>›</span></a>

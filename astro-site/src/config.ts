@@ -49,6 +49,10 @@ export const navBarConfig: NavBarConfig = {
 		LinkPreset.Home,
 		LinkPreset.Archive,
 		{
+			name: "专栏",
+			url: "/series/",
+		},
+		{
 			name: "分类",
 			url: "/categories/",
 		},

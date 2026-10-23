@@ -9,6 +9,7 @@ import { getDir } from "@utils/url-utils";
 import { Icon } from "astro-icon/components";
 import ImageWrapper from "../../components/misc/ImageWrapper.astro";
 import PostMetadata from "../../components/PostMeta.astro";
+import SeriesNav from "../../components/series/SeriesNav.astro";
 import { profileConfig, siteConfig } from "../../config";
 import { formatDateToYYYYMMDD } from "../../utils/date-utils";
 
@@ -93,6 +94,8 @@ const jsonLd = {
                 {!entry.data.image && <div class="border-[var(--line-divider)] border-dashed border-b-[1px] mb-5"></div>}
             </div>
 
+            <SeriesNav entry={entry} position="top" />
+
             <!-- always show cover as long as it has one -->
 
             {entry.data.image &&
@@ -103,6 +106,8 @@ const jsonLd = {
             <Markdown class="mb-6 markdown-content onload-animation">
                 <Content />
             </Markdown>
+
+            <SeriesNav entry={entry} position="bottom" />
 
             <footer class="article-footer onload-animation" aria-label="文章页脚">
                 <div class="article-footer-item">

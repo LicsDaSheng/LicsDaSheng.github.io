@@ -1,0 +1,62 @@
+---
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import { getSeriesPosts } from "@utils/content-utils";
+import { getPostUrlBySlug, url } from "@utils/url-utils";
+import { type SeriesConfig, seriesList } from "../../series";
+import { formatDateToYYYYMMDD } from "../../utils/date-utils";
+
+export async function getStaticPaths() {
+	return seriesList.map((s) => ({ params: { series: s.id }, props: { series: s } }));
+}
+
+const { series } = Astro.props as { series: SeriesConfig };
+const posts = await getSeriesPosts(series.id);
+const stages = series.stages.map((stage, i) => ({
+	...stage,
+	posts: posts.filter((p) => (p.data.seriesStage ?? 1) === i + 1),
+}));
+const rendered = await Promise.all(posts.map((p) => p.render()));
+const meta = new Map(posts.map((p, i) => [p.slug, rendered[i].remarkPluginFrontmatter]));
+const first = posts[0];
+---
+<MainGridLayout title={series.title} description={series.description}>
+    <header class="home-intro paper-panel series-intro">
+        <div class="eyebrow">{series.eyebrow}</div>
+        <h1>{series.title}</h1>
+        <p>{series.description}</p>
+        <p class="series-audience">{series.audience}</p>
+        <div class="intro-links">
+            {first && <a href={getPostUrlBySlug(first.slug)}>从第一章开始阅读 <span>→</span></a>}
+            <a href={url("/series/")}>全部专栏 <span>›</span></a>
+        </div>
+    </header>
+
+    {stages.map((stage, si) => (
+        <section class="series-stage">
+            <div class="section-heading"><span>{stage.title}</span><span>STAGE {si + 1}</span></div>
+            <div class="paper-panel series-stage-body">
+                <p class="series-stage-desc">{stage.description}</p>
+                {stage.posts.length > 0 ? (
+                    <ol class="series-chapters">
+                        {stage.posts.map((p) => (
+                            <li>
+                                <a href={getPostUrlBySlug(p.slug)}>
+                                    <span class="series-chapter-no">{String(p.data.seriesOrder ?? "").padStart(2, "0")}</span>
+                                    <span class="series-chapter-main">
+                                        <strong>{p.data.title}</strong>
+                                        {p.data.description && <span class="series-chapter-desc">{p.data.description}</span>}
+                                        <span class="series-chapter-meta">
+                                            {formatDateToYYYYMMDD(p.data.published)} · {meta.get(p.slug)?.words} 字 · 约 {meta.get(p.slug)?.minutes} 分钟
+                                        </span>
+                                    </span>
+                                </a>
+                            </li>
+                        ))}
+                    </ol>
+                ) : (
+                    <p class="series-empty">{stage.status === "planned" ? "规划中，敬请期待。" : "撰写中。"}</p>
+                )}
+            </div>
+        </section>
+    ))}
+</MainGridLayout>

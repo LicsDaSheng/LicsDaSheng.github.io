@@ -17,20 +17,54 @@ async function getRawSortedPosts() {
 	return sorted;
 }
 
+function linkNeighbours(posts: CollectionEntry<"posts">[]) {
+	// posts 按阅读顺序反向排列（较新/靠后的在前），与原有 prev/next 语义一致
+	for (let i = 1; i < posts.length; i++) {
+		posts[i].data.nextSlug = posts[i - 1].slug;
+		posts[i].data.nextTitle = posts[i - 1].data.title;
+	}
+	for (let i = 0; i < posts.length - 1; i++) {
+		posts[i].data.prevSlug = posts[i + 1].slug;
+		posts[i].data.prevTitle = posts[i + 1].data.title;
+	}
+}
+
+function bySeriesOrder(a: CollectionEntry<"posts">, b: CollectionEntry<"posts">) {
+	return (a.data.seriesOrder ?? 0) - (b.data.seriesOrder ?? 0);
+}
+
 export async function getSortedPosts() {
 	const sorted = await getRawSortedPosts();
 
-	for (let i = 1; i < sorted.length; i++) {
-		sorted[i].data.nextSlug = sorted[i - 1].slug;
-		sorted[i].data.nextTitle = sorted[i - 1].data.title;
-	}
-	for (let i = 0; i < sorted.length - 1; i++) {
-		sorted[i].data.prevSlug = sorted[i + 1].slug;
-		sorted[i].data.prevTitle = sorted[i + 1].data.title;
+	// 普通文章按时间互相串联；专栏文章只在本专栏内按章节顺序串联
+	linkNeighbours(sorted.filter((p) => !p.data.series));
+	const seriesIds = new Set(
+		sorted.map((p) => p.data.series).filter(Boolean) as string[],
+	);
+	for (const id of seriesIds) {
+		linkNeighbours(
+			sorted
+				.filter((p) => p.data.series === id)
+				.sort(bySeriesOrder)
+				.reverse(),
+		);
 	}
 
 	return sorted;
 }
+
+/** 首页信息流：不含专栏文章（专栏在 /series/ 单独呈现） */
+export async function getFeedPosts() {
+	return (await getSortedPosts()).filter((p) => !p.data.series);
+}
+
+/** 指定专栏的文章，按章节顺序升序 */
+export async function getSeriesPosts(seriesId: string) {
+	return (await getRawSortedPosts())
+		.filter((p) => p.data.series === seriesId)
+		.sort(bySeriesOrder);
+}
+
 export type PostForList = {
 	slug: string;
 	data: CollectionEntry<"posts">["data"];

@@ -1,0 +1,26 @@
+---
+import SeriesCard from "@components/series/SeriesCard.astro";
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import { getSeriesPosts } from "@utils/content-utils";
+import { seriesList } from "../../series";
+
+const items = await Promise.all(
+	seriesList.map(async (s) => {
+		const posts = await getSeriesPosts(s.id);
+		return { series: s, count: posts.length, latest: posts.at(-1)?.data.title };
+	}),
+);
+---
+<MainGridLayout title="专栏" description="成体系的系列教程与专题">
+    <header class="home-intro paper-panel series-intro">
+        <div class="eyebrow">COLUMNS · 专栏</div>
+        <h1>系统地读完<br /><em>一个主题</em></h1>
+        <p>专栏是按章节顺序组织的系列内容，适合从头到尾连续阅读。</p>
+    </header>
+    <div class="section-heading"><span>全部专栏</span><span>ALL COLUMNS</span></div>
+    <div class="flex flex-col gap-4">
+        {items.filter((i) => i.count > 0).map((i) => (
+            <SeriesCard series={i.series} count={i.count} latestTitle={i.latest} />
+        ))}
+    </div>
+</MainGridLayout>

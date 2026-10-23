@@ -1,0 +1,21 @@
+---
+import type { SeriesConfig } from "../../series";
+import { url } from "../../utils/url-utils";
+
+interface Props {
+	series: SeriesConfig;
+	count: number;
+	latestTitle?: string;
+}
+const { series, count, latestTitle } = Astro.props;
+---
+<a href={url(`/series/${series.id}/`)} class="series-card paper-panel">
+    <span class="eyebrow">{series.eyebrow}</span>
+    <h2>{series.title}</h2>
+    <p>{series.description}</p>
+    <div class="series-card-meta">
+        <span>已更新 {count} 篇</span>
+        {latestTitle && <span class="series-card-latest">最新：{latestTitle}</span>}
+        <span class="series-card-go">进入专栏 →</span>
+    </div>
+</a>

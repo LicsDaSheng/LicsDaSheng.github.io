@@ -63,6 +63,18 @@ draft: false
 
 文件名即 slug；正文无需重复一级标题（主题会渲染 title）。
 
+### 专栏（系列）文章
+
+专栏在 `src/series.ts` 中定义（标题、简介、阶段），文章放在 `src/content/posts/<专栏id>/` 并在 frontmatter 增加：
+
+```yaml
+series: pi-tutorial   # 对应 series.ts 中的 id
+seriesOrder: 3        # 章节顺序
+seriesStage: 1        # 所属阶段（从 1 开始，对应 stages 下标 + 1）
+```
+
+专栏文章不进入首页「最新文章」信息流，而在 `/series/` 与 `/series/<id>/` 单独呈现；文章页自动显示专栏目录与上一章/下一章导航。归档、分类、搜索和 RSS 仍包含专栏文章。
+
 ## 配置要点（src/config.ts）
 
 - `title` / `subtitle` / `lang`（`zh_CN`）
