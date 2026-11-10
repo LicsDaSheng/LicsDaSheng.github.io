@@ -10,7 +10,24 @@ interface Props {
 const links = Astro.props.links;
 ---
 <div id="nav-menu-panel" class:list={["float-panel float-panel-closed absolute transition-all fixed right-4 px-2 py-2"]}>
-    {links.map((link) => (
+    {links.map((link) => link.children && link.children.length > 0 ? (
+        <div class="py-1">
+            <div class="flex items-center py-2 pl-3 pr-1 font-bold text-black/75 dark:text-white/75">
+                {link.name}
+            </div>
+            <div class="ml-3 pl-2 border-l border-dashed border-[var(--line-divider)]">
+                {link.children.map((c) => (
+                    <a href={c.external ? c.url : url(c.url)} target={c.external ? "_blank" : null}
+                       class="group flex justify-between items-center py-2 pl-3 pr-1 rounded-lg gap-8 hover:bg-[var(--btn-plain-bg-hover)] active:bg-[var(--btn-plain-bg-active)] transition">
+                        <div class="transition text-sm text-black/70 dark:text-white/70 font-bold group-hover:text-[var(--primary)] group-active:text-[var(--primary)]">
+                            {c.name}
+                        </div>
+                        <Icon name="material-symbols:chevron-right-rounded" class="transition text-[1.25rem] text-[var(--primary)]"></Icon>
+                    </a>
+                ))}
+            </div>
+        </div>
+    ) : (
         <a href={link.external ? link.url : url(link.url)} class="group flex justify-between items-center py-2 pl-3 pr-1 rounded-lg gap-8
             hover:bg-[var(--btn-plain-bg-hover)] active:bg-[var(--btn-plain-bg-active)] transition
         "
