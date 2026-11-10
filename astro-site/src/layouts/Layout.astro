@@ -1,6 +1,15 @@
 ---
 import "lxgw-wenkai-webfont/lxgwwenkai-regular.css";
 import "lxgw-wenkai-webfont/lxgwwenkai-bold.css";
+// 全局样式须在此显式引入，否则仅在部分页面生效（paper-theme 放最后以覆盖默认主题）
+import "../styles/variables.styl";
+import "../styles/main.css";
+import "../styles/markdown.css";
+import "../styles/markdown-extend.styl";
+import "../styles/transition.css";
+import "../styles/scrollbar.css";
+import "../styles/photoswipe.css";
+import "../styles/expressive-code.css";
 import "../styles/paper-theme.css";
 
 import ConfigCarrier from "@components/ConfigCarrier.astro";
