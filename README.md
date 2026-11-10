@@ -4,6 +4,13 @@ AI Agent 领域的深度分析与洞察。
 
 线上地址：<https://licsdasheng.github.io>
 
+## 工作区归属
+
+- 归属：Scott 的 OPC 自有工程。
+- 工程位置：`code/LicsDaSheng.github.io/`；Astro 应用位于 `astro-site/`。
+- 项目说明：[OPC 技术博客资料](../../OPC/projects/GitHub-Pages技术博客-GitHubPages/index.md)。
+- 2026-10-28 从 `/Users/scottlee/LicsDaSheng/LicsDaSheng.github.io` 整体迁入；Git 历史、未提交内容和本地依赖保留。
+
 ## 博客列表
 
 | 时间 | 标题 |
