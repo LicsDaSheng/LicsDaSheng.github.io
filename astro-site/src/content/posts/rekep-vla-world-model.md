@@ -5,6 +5,8 @@ description: "从目标约束、动作策略和未来预测三个层次，解释
 tags: [rekep, vla, world-model, robotics, physical-ai, robot-foundation-model]
 category: 技术
 draft: false
+series: physical-ai
+seriesOrder: 3
 ---
 
 > 上篇：[ReKep 论文解读：用关系关键点约束连接语言与机器人动作](/posts/rekep-paper-review/)  

@@ -16,6 +16,34 @@ export type SeriesConfig = {
 // 专栏定义：文章通过 frontmatter 的 `series` 与 `seriesOrder` 归入专栏
 export const seriesList: SeriesConfig[] = [
 	{
+		id: "physical-ai",
+		title: "Physical AI",
+		eyebrow: "COLUMN · PHYSICAL AI",
+		description: "从机械臂、机器人操作到 VLA 与世界模型，记录 AI 如何进入真实的物理世界。",
+		audience: "适合对机器人、具身智能与 Physical AI 感兴趣的读者。",
+		stages: [
+			{
+				title: "文章",
+				description: "沿着硬件与软件、机器人操作方法、模型能力的脉络继续阅读。",
+				status: "active",
+			},
+		],
+	},
+	{
+		id: "personal-thoughts",
+		title: "个人思考",
+		eyebrow: "COLUMN · PERSONAL THOUGHTS",
+		description: "关于 AI、智能体与工作方式的观察：技术改变的不只是工具，也包括我们如何做事和做判断。",
+		audience: "写给同样在思考 AI 将如何影响日常生活与工作的人。",
+		stages: [
+			{
+				title: "文章",
+				description: "从智能体如何适配人，到如何分配注意力，再到我们与电脑的新关系。",
+				status: "active",
+			},
+		],
+	},
+	{
 		id: "pi-tutorial",
 		title: "Pi 智能体开发教程",
 		eyebrow: "COLUMN · PI TUTORIAL",

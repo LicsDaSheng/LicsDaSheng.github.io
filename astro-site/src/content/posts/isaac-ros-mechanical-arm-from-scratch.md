@@ -5,6 +5,8 @@ description: "为什么你看不懂 Isaac ROS 文档？因为缺一张地图。�
 tags: [isaac-ros, ros2, mechanical-arm, robotics, cumotion, hardware, piper, embodied-ai]
 category: 技术
 draft: false
+series: physical-ai
+seriesOrder: 1
 ---
 
 > 本文以 AgileX Piper 6 轴机械臂为实例，拆解机械臂硬件、CAN 通信、ROS 2、Isaac ROS cuMotion 的完整链路。文中方法论不限于 Piper，换一台机械臂同样成立。

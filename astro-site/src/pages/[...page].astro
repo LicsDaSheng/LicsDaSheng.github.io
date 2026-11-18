@@ -5,9 +5,9 @@ import PostPage from "../components/PostPage.astro";
 import NotebookSketch from "../components/NotebookSketch.astro";
 import { PAGE_SIZE } from "../constants/constants";
 import MainGridLayout from "../layouts/MainGridLayout.astro";
-import SeriesCard from "../components/series/SeriesCard.astro";
-import { seriesList } from "../series";
-import { getFeedPosts, getSeriesPosts } from "../utils/content-utils";
+import PostCard from "../components/PostCard.astro";
+import { getFeedPosts, getSortedPosts } from "../utils/content-utils";
+import { getPostUrlBySlug } from "../utils/url-utils";
 
 export const getStaticPaths = (async ({ paginate }) => {
 	const allBlogPosts = await getFeedPosts();
@@ -18,14 +18,13 @@ export const getStaticPaths = (async ({ paginate }) => {
 const { page } = Astro.props;
 
 const len = page.data.length;
-const columns = (
-	await Promise.all(
-		seriesList.map(async (s) => {
-			const posts = await getSeriesPosts(s.id);
-			return { series: s, count: posts.length, latest: posts.at(-1)?.data.title };
-		}),
-	)
-).filter((c) => c.count > 0);
+const recommendedSlugs = ["laptop-as-digital-employee", "agent-adapts-to-human"];
+const allPosts = await getSortedPosts();
+const recommendedPosts = recommendedSlugs.map((slug) => {
+	const post = allPosts.find((entry) => entry.slug === slug);
+	if (!post) throw new Error(`找不到首页推荐文章：${slug}`);
+	return post;
+});
 ---
 
 <MainGridLayout>
@@ -33,15 +32,26 @@ const columns = (
         <div class="eyebrow">AGENT INSIGHT · 独立技术博客</div>
         <NotebookSketch />
         <h1>记录 AI Agent 的<br /><em>技术与思考</em></h1>
-        <p>我是 ScottLee · 大圣，关注 AI 原生应用开发、智能体系统与开源生态。这里是持续更新的实践笔记与深度分析。</p>
-        <div class="intro-links"><a href="/about/">认识作者 <span>↗</span></a><a href="/archive/">浏览全部文章 <span>→</span></a><a href="/series/">专栏 <span>→</span></a></div>
+        <p>我是 ScottLee · 大圣，专注 AI 智能体架构与实践。这里持续分享我的实践笔记与深度思考。如果你想构建属于自己的智能体数字分身，欢迎邮件交流：<a href="mailto:once_key@126.com">once_key@126.com</a>。</p>
+        <div class="intro-links"><a href="/about/">认识作者 <span>↗</span></a><a href="/archive/">浏览全部文章 <span>→</span></a><a href="#recommended">推荐 <span>→</span></a></div>
     </header>}
-    {page.currentPage === 1 && columns.length > 0 && <>
-        <div class="section-heading"><span>专栏</span><span>COLUMNS</span></div>
+    {page.currentPage === 1 && <section id="recommended" aria-label="推荐文章">
+        <div class="section-heading"><span>推荐</span><span>RECOMMENDED</span></div>
         <div class="flex flex-col gap-4 mb-6">
-            {columns.map((c) => <SeriesCard series={c.series} count={c.count} latestTitle={c.latest} />)}
+            {recommendedPosts.map((entry) => <PostCard
+                entry={entry}
+                title={entry.data.title}
+                tags={entry.data.tags}
+                category={entry.data.category}
+                published={entry.data.published}
+                updated={entry.data.updated}
+                url={getPostUrlBySlug(entry.slug)}
+                image={entry.data.image}
+                description={entry.data.description}
+                draft={entry.data.draft}
+            />)}
         </div>
-    </>}
+    </section>}
     <div class="section-heading"><span>最新文章</span><span>RECENT WRITING</span></div>
     <PostPage page={page}></PostPage>
     <Pagination class="mx-auto onload-animation" page={page} style={`animation-delay: calc(var(--content-delay) + ${(len)*50}ms)`}></Pagination>

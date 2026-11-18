@@ -5,6 +5,8 @@ description: "以「人适配 Agent 还是 Agent 适配人」为分界，梳理 
 tags: [agent, agent-product, design-philosophy, ai-native, pi, deepseek, claude-code, workflow]
 category: Agent
 draft: false
+series: personal-thoughts
+seriesOrder: 1
 ---
 
 本周深度使用了 DeepSeek Harness，并对比了目前深度自用的 Agent 之一：pi。两者虽然产品形态不同，但都触及了一个关于 Agent 的核心问题：**究竟应该由人适配 Agent，还是由 Agent 适配人？**

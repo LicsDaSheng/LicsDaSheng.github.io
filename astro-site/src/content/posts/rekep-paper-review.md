@@ -5,6 +5,8 @@ description: "ReKep 如何把自然语言任务转换成关系关键点约束，
 tags: [rekep, robotics, physical-ai, robot-manipulation, vlm, trajectory-optimization]
 category: 技术
 draft: false
+series: physical-ai
+seriesOrder: 2
 ---
 
 > 论文：*ReKep: Spatio-Temporal Reasoning of Relational Keypoint Constraints for Robotic Manipulation*  
